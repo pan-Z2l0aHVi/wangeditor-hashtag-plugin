@@ -6,7 +6,7 @@
 import { IDomEditor } from '@wangeditor/editor'
 
 export interface IExtendConfig {
-  mentionConfig: {
+  hashtagConfig: {
     showModal: (editor: IDomEditor) => void
     hideModal: (editor: IDomEditor) => void
   }

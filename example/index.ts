@@ -4,7 +4,7 @@
  */
 
 import { IDomEditor, createEditor, createToolbar, Boot, IEditorConfig } from '@wangeditor/editor'
-import module, { MentionElement } from '../src/index'
+import module, { HashtagElement } from '../src/index'
 import { showModalElem, hideModalElem, bindInputEvent, bindModalEvent } from './init-dom'
 
 // 注册
@@ -21,7 +21,7 @@ const editorConfig: Partial<IEditorConfig> = {
     document.getElementById('text-json').value = contentStr
   },
   EXTEND_CONF: {
-    mentionConfig: {
+    hashtagConfig: {
       showModal: showModalElem,
       hideModal: hideModalElem,
     },
@@ -40,7 +40,7 @@ const editor = createEditor({
         { text: 'hello world' },
         {
           // @ts-ignore
-          type: 'mention',
+          type: 'hashtag',
           value: '张三',
           info: { x: 100 },
           children: [{ text: '' }],
@@ -48,7 +48,7 @@ const editor = createEditor({
       ],
     },
   ],
-  // html: `<p>hello&nbsp;world<span data-w-e-type="mention" data-w-e-is-void data-w-e-is-inline data-value="小明" data-info="%7B%22x%22%3A10%7D">@小明</span></p><p><br></p>`,
+  // html: `<p>hello&nbsp;world<span data-w-e-type="hashtag" data-w-e-is-void data-w-e-is-inline data-value="小明" data-info="%7B%22x%22%3A10%7D">#小明</span></p><p><br></p>`,
 })
 const toolbar = createToolbar({
   editor,

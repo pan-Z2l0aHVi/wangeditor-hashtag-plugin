@@ -5,26 +5,26 @@
 
 import createEditor from '../utils/create-editor'
 import renderElemConf from '../../src/module/render-elem'
-import { MentionElement } from '../../src/index'
+import { HashtagElement } from '../../src/index'
 
-describe('mention render-elem', () => {
+describe('hashtag render-elem', () => {
   const editor = createEditor()
 
-  const mentionElem: MentionElement = {
-    type: 'mention',
+  const hashtagElem: HashtagElement = {
+    type: 'hashtag',
     value: '张三',
     info: { x: 10 },
     children: [{ text: '' }],
   }
 
   it('type', () => {
-    expect(renderElemConf.type).toBe('mention')
+    expect(renderElemConf.type).toBe('hashtag')
   })
 
   it('render elem', () => {
-    const vnode = renderElemConf.renderElem(mentionElem, null, editor)
+    const vnode = renderElemConf.renderElem(hashtagElem, null, editor)
     expect(vnode.sel).toBe('span')
-    expect(vnode.text).toBe('@张三')
+    expect(vnode.text).toBe('#张三')
     // @ts-ignore
     expect(vnode.data.props.contentEditable).toBe(false)
   })

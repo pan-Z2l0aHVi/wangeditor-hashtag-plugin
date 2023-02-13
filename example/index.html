@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>wangEditor mention demo</title>
+  <title>wangEditor hashtag demo</title>
   <link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
   <style>
@@ -13,7 +13,7 @@
       outline: none;
     }
 
-    #mention-modal {
+    #hashtag-modal {
       display: none;
       position: absolute;
       border: 1px solid #ccc;
@@ -21,24 +21,24 @@
       padding: 5px;
     }
 
-    #mention-modal input {
+    #hashtag-modal input {
       width: 100px;
       outline: none;
     }
 
-    #mention-modal ul {
+    #hashtag-modal ul {
       padding: 0;
       margin: 0;
     }
 
-    #mention-modal ul li {
+    #hashtag-modal ul li {
       list-style: none;
       cursor: pointer;
       padding: 3px 0;
       text-align: left;
     }
 
-    #mention-modal ul li:hover {
+    #hashtag-modal ul li:hover {
       /* background-color: #f1f1f1; */
       text-decoration: underline;
     }
@@ -46,7 +46,7 @@
 </head>
 
 <body style="margin: 0 20px;">
-  <p>wangEditor mention demo</p>
+  <p>wangEditor hashtag demo</p>
 
   <div>
     <div id="toolbar-container" style="border: 1px solid #ccc; border-bottom: none;"></div>
@@ -62,9 +62,9 @@
     </div>
   </div>
 
-  <div id="mention-modal">
-    <input id="mention-input">
-    <ul id="mention-list">
+  <div id="hashtag-modal">
+    <input id="hashtag-input">
+    <ul id="hashtag-list">
       <li>A张三</li>
       <li>B李四</li>
       <li>C小明</li>

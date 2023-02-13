@@ -1,22 +1,23 @@
 {
-  "name": "@wangeditor/plugin-mention",
+  "name": "wangeditor-hashtag-plugin",
+  "private": false,
   "version": "1.0.0",
-  "description": "wangEditor mention plugin",
+  "description": "wangEditor hashtag plugin. modified and forked from @wangeditor/plugin-mention",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wangeditor-team/wangEditor-plugin-mention.git"
+    "url": "git+https://github.com/pb0710/wangeditor-hashtag-plugin.git"
   },
   "keywords": [
     "wangeditor",
-    "@",
-    "mention"
+    "#",
+    "hashtag"
   ],
-  "author": "github.com/wangfupeng1988",
+  "author": "github.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wangeditor-team/wangEditor-plugin-mention/issues"
+    "url": "https://github.com/pb0710/wangeditor-hashtag-plugin/issues"
   },
-  "homepage": "https://github.com/wangeditor-team/wangEditor-plugin-mention#readme",
+  "homepage": "https://github.com/pb0710/wangeditor-hashtag-plugin#readme",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/src/index.d.ts",

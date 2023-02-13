@@ -1,10 +1,10 @@
 /**
- * @description init mention modal DOM elem
+ * @description init hashtag modal DOM elem
  * @author wangfupeng
  */
 
 import { IDomEditor } from '@wangeditor/editor'
-import { MentionElement } from '../src/index'
+import { HashtagElement } from '../src/index'
 
 /**
  * 显示 modal elem
@@ -17,14 +17,14 @@ export function showModalElem(editor: IDomEditor) {
   const rect = domRange.getBoundingClientRect()
 
   // 显示 modal
-  const modalElem = document.getElementById('mention-modal')
+  const modalElem = document.getElementById('hashtag-modal')
   if (modalElem == null) return
   modalElem.style.top = `${rect.top + 20}px`
   modalElem.style.left = `${rect.left + 5}px`
   modalElem.style.display = 'block'
 
   // focus 到 input
-  const inputElem = document.getElementById('mention-input')
+  const inputElem = document.getElementById('hashtag-input')
   inputElem?.focus()
 }
 
@@ -32,16 +32,16 @@ export function showModalElem(editor: IDomEditor) {
  * 隐藏 modal elem
  */
 export function hideModalElem(editor: IDomEditor) {
-  const modalElem = document.getElementById('mention-modal')
+  const modalElem = document.getElementById('hashtag-modal')
   if (modalElem == null) return
   modalElem.style.display = 'none'
 
   // 清空 input
-  const inputElem = document.getElementById('mention-input') as HTMLInputElement
+  const inputElem = document.getElementById('hashtag-input') as HTMLInputElement
   inputElem.value = ''
 
   // 还原 list display
-  const listElem = document.getElementById('mention-list')
+  const listElem = document.getElementById('hashtag-list')
   const listChildren = Array.from(listElem?.children || [])
   for (const li of listChildren) {
     // @ts-ignore
@@ -54,10 +54,10 @@ export function hideModalElem(editor: IDomEditor) {
  * @param editor editor
  */
 export function bindModalEvent(editor: IDomEditor) {
-  const modalElem = document.getElementById('mention-modal')
+  const modalElem = document.getElementById('hashtag-modal')
   if (modalElem == null) return
 
-  // 点击 li 插入 mention
+  // 点击 li 插入 hashtag
   modalElem.addEventListener('click', (event: MouseEvent) => {
     // @ts-ignore
     if (event.target?.nodeName === 'LI') {
@@ -66,16 +66,16 @@ export function bindModalEvent(editor: IDomEditor) {
       const text = event.target.textContent
       if (text == null) return
 
-      // 删除 '@'
+      // 删除 '#'
       editor.deleteBackward('character')
-      // 插入 mention 节点
-      const mentionNode: MentionElement = {
-        type: 'mention',
+      // 插入 hashtag 节点
+      const hashtagNode: HashtagElement = {
+        type: 'hashtag',
         value: text,
         info: { x: 1, y: 2 }, // 其他信息
         children: [{ text: '' }],
       }
-      editor.insertNode(mentionNode)
+      editor.insertNode(hashtagNode)
       // 光标移动一位
       editor.move(1)
       // 隐藏 modal elem
@@ -89,8 +89,8 @@ export function bindModalEvent(editor: IDomEditor) {
  * @param editor editor
  */
 export function bindInputEvent(editor: IDomEditor) {
-  const inputElem = document.getElementById('mention-input')
-  const listElem = document.getElementById('mention-list')
+  const inputElem = document.getElementById('hashtag-input')
+  const listElem = document.getElementById('hashtag-list')
   if (inputElem == null || listElem == null) return
 
   // input 输入文字，筛选 list

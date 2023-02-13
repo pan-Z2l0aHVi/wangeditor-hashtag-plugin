@@ -1,18 +1,18 @@
 /**
- * @description mention plugin
+ * @description hashtag plugin
  * @author wangfupeng
  */
 
 import { DomEditor, IDomEditor } from '@wangeditor/editor'
 import { IExtendConfig } from './interface'
 
-function getMentionConfig(editor: IDomEditor) {
+function getHashtagConfig(editor: IDomEditor) {
   const { EXTEND_CONF } = editor.getConfig()
-  const { mentionConfig } = EXTEND_CONF as IExtendConfig
-  return mentionConfig
+  const { hashtagConfig } = EXTEND_CONF as IExtendConfig
+  return hashtagConfig
 }
 
-function withMention<T extends IDomEditor>(editor: T) {
+function withHashtag<T extends IDomEditor>(editor: T) {
   const { insertText, isInline, isVoid } = editor
   const newEditor = editor
 
@@ -26,10 +26,10 @@ function withMention<T extends IDomEditor>(editor: T) {
       return
     }
 
-    // mention 相关配置
-    const { showModal, hideModal } = getMentionConfig(newEditor)
+    // hashtag 相关配置
+    const { showModal, hideModal } = getHashtagConfig(newEditor)
 
-    if (t === '@') {
+    if (t === '#') {
       setTimeout(() => {
         // 展示 modal （异步，以便准确获取光标位置）
         if (showModal) showModal(newEditor)
@@ -56,14 +56,14 @@ function withMention<T extends IDomEditor>(editor: T) {
       })
     }
 
-    // 非 '@' 则执行默认行为
+    // 非 '#' 则执行默认行为
     insertText(t)
   }
 
   // 重写 isInline
   newEditor.isInline = elem => {
     const type = DomEditor.getNodeType(elem)
-    if (type === 'mention') {
+    if (type === 'hashtag') {
       return true
     }
 
@@ -73,7 +73,7 @@ function withMention<T extends IDomEditor>(editor: T) {
   // 重写 isVoid
   newEditor.isVoid = elem => {
     const type = DomEditor.getNodeType(elem)
-    if (type === 'mention') {
+    if (type === 'hashtag') {
       return true
     }
 
@@ -83,4 +83,4 @@ function withMention<T extends IDomEditor>(editor: T) {
   return newEditor
 }
 
-export default withMention
+export default withHashtag

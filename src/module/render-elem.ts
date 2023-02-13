@@ -5,12 +5,12 @@
 
 import { h, VNode } from 'snabbdom'
 import { DomEditor, IDomEditor, SlateElement } from '@wangeditor/editor'
-import { MentionElement } from './custom-types'
+import { HashtagElement } from './custom-types'
 
-function renderMention(elem: SlateElement, children: VNode[] | null, editor: IDomEditor): VNode {
+function renderHashtag(elem: SlateElement, children: VNode[] | null, editor: IDomEditor): VNode {
   // 当前节点是否选中
   const selected = DomEditor.isNodeSelected(editor, elem)
-  const { value = '' } = elem as MentionElement
+  const { value = '' } = elem as HashtagElement
 
   // 构建 vnode
   const vnode = h(
@@ -30,15 +30,15 @@ function renderMention(elem: SlateElement, children: VNode[] | null, editor: IDo
         padding: '0 3px',
       },
     },
-    `@${value}` // 如 `@张三`
+    `#${value}` // 如 `#张三`
   )
 
   return vnode
 }
 
 const conf = {
-  type: 'mention', // 节点 type ，重要！！！
-  renderElem: renderMention,
+  type: 'hashtag', // 节点 type ，重要！！！
+  renderElem: renderHashtag,
 }
 
 export default conf
