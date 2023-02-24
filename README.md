@@ -87,3 +87,15 @@ hashtag 节点返回的 HTML 格式如下，其中 `data-info` 的值需要 `dec
 ```html
 <span data-w-e-type="hashtag" data-w-e-is-void data-w-e-is-inline data-value="张三" data-info="%7B%22x%22%3A10%7D">#张三</span>
 ```
+
+### 自定义样式 css 变量
+
+```css
+--w-e-hashtag-ml: 2px;
+--w-e-hashtag-mr: 2px;
+--w-e-hashtag-radius: 4px;
+--w-e-hashtag-pd: 2px;
+--w-e-hashtag-text-color: #1472ff;
+--w-e-hashtag-bg-color: transparent;
+--w-e-hashtag-selected-border-color: #b4d5ff;
+```

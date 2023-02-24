@@ -89,4 +89,15 @@ You will get a hashtag's HTML format like this. You need to `decodeURIComponent`
 <span data-w-e-type="hashtag" data-w-e-is-void data-w-e-is-inline data-value="James" data-info="%7B%22x%22%3A10%7D">#James</span>
 ```
 
+### Custom styles css variables
+
+```css
+--w-e-hashtag-ml: 2px;
+--w-e-hashtag-mr: 2px;
+--w-e-hashtag-radius: 4px;
+--w-e-hashtag-pd: 2px;
+--w-e-hashtag-text-color: #1472ff;
+--w-e-hashtag-bg-color: transparent;
+--w-e-hashtag-selected-border-color: #b4d5ff;
+```
 
