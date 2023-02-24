@@ -1,7 +1,7 @@
 {
   "name": "wangeditor-hashtag-plugin",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "wangEditor hashtag plugin. modified and forked from @wangeditor/plugin-mention",
   "repository": {
     "type": "git",
