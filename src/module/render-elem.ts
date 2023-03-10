@@ -25,10 +25,11 @@ function renderHashtag(elem: SlateElement, children: VNode[] | null, editor: IDo
         color: 'var(--w-e-hashtag-text-color)',
         backgroundColor: 'var(--w-e-hashtag-bg-color)',
         border: selected // 选中/不选中，样式不一样
-          ? '2px solid var(--w-e-hashtag-selected-border-color)' // wangEditor 提供了 css var https://www.wangeditor.com/v5/theme.html
-          : '2px solid transparent',
+          ? 'var(--w-e-hashtag-bd-w) solid var(--w-e-hashtag-selected-border-color)' // wangEditor 提供了 css var https://www.wangeditor.com/v5/theme.html
+          : 'var(--w-e-hashtag-bd-w) solid transparent',
         borderRadius: 'var(--w-e-hashtag-radius)',
         padding: '0 var(--w-e-hashtag-pd)',
+        boxShadow: selected ? '0 0 0 2px var(--w-e-hashtag-selected-shadow-color)' : '',
       },
     },
     `#${value}` // 如 `#张三`

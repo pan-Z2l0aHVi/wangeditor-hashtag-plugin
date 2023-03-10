@@ -10,7 +10,7 @@ import { HashtagElement } from './custom-types'
 function hashtagToHtml(elem: SlateElement, childrenHtml: string): string {
   const { value = '', info = {} } = elem as HashtagElement
   const infoStr = encodeURIComponent(JSON.stringify(info))
-  return `<span data-w-e-type="hashtag" data-w-e-is-void data-w-e-is-inline data-value="${value}" data-info="${infoStr}">#${value}</span>`
+  return `<span data-w-e-type="hashtag" data-w-e-is-void data-w-e-is-inline data-value="${value}" data-info="${infoStr}" style="color:#2f5b9e;">#${value}</span>`
 }
 
 // 配置
